@@ -28,7 +28,10 @@ class HospitalTypeSeeder extends Seeder
         ];
 
         foreach ($hospitalTypes as $type) {
-            \App\Models\HospitalType::create($type);
+            \App\Models\HospitalType::firstOrCreate(
+                ['name' => $type['name']],
+                $type
+            );
         }
     }
 }

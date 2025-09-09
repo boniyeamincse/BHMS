@@ -1,4 +1,5 @@
-📋 BHMS Features — 79+ Modules 🌐 Super Admin (SaaS Level)
+📋 BHMS Features — 79+ Modules
+🌐 Super Admin (SaaS Level)
 
 Dashboard (KPIs: hospitals, plans, revenue, enquiries)
 
@@ -20,7 +21,8 @@ Front CMS (About, Services, Pricing, FAQ, landing text)
 
 Settings (branding, SMTP, SMS, payment, favicon, locales)
 
-🏥 Hospital Admin + Staff Core & Users
+🏥 Hospital Admin + Staff
+Core & Users
 
 Dashboard (invoices, bills, payments, staff, beds)
 
@@ -192,7 +194,9 @@ Export to Excel (lists)
 
 Export to PDF (invoices, bills, diagnosis)
 
-Types of Dashboards in BHMS 🌐 SaaS Level
+
+Types of Dashboards in BHMS
+🌐 SaaS Level
 
 Super Admin Dashboard
 
@@ -317,123 +321,3 @@ IPD admission history
 Notifications/messages from hospital
 
 Tele-consultation links
-
----
-
-## 🧪 Testing Scenarios
-
-### Prerequisites
-1. Ensure database is running and configured in `.env` (MySQL/PostgreSQL/SQLite)
-2. Install dependencies: `composer install && npm install`
-3. Generate application key: `php artisan key:generate`
-4. Run migrations and seeders: `php artisan migrate:fresh --seed`
-
-### Setup Commands
-```bash
-# Complete initial setup
-php artisan migrate:fresh --seed
-
-# Or just seed the Super Admin separately
-php artisan db:seed --class=SuperAdminSeeder
-
-# Clear caches after changes
-php artisan config:clear && php artisan route:clear && php artisan view:clear
-
-# Start development servers
-php artisan serve --host=127.0.0.1 --port=8001
-npm run dev
-```
-
-## 🚀 **Important: Authentication Security Updates**
-
-**This project has been updated with enterprise-grade security features:**
-
-### ✅ **New Security Features Added**
-- Strong password requirements (8+ chars, mixed case, numbers, letters)
-- Brute force protection (rate limiting)
-- Session fixation prevention
-- Comprehensive authentication logging
-- Dedicated Super Admin seeder
-
-### 👑 **Super Admin Credentials**
-- **Email**: `superadmin@bhms.com`
-- **Password**: `BHMS@2025!super#`
-- **Dashboard**: `/saas/dashboard`
-
-⚠️ **IMPORTANT**: Change the Super Admin password immediately after first login!
-
-### Test Users Created
-- **Super Admin**: `superadmin@bhms.com` / `BHMS@2025!super#`
-- **Hospital Admin**: `admin@example.com` / `password`
-- **Doctor**: `doctor@example.com` / `password`
-- **Patient**: `patient@example.com` / `password`
-- **Hospital**: `Test Hospital`
-
-### Test Scenarios
-
-#### 1. Super Admin Access
-1. Login as Super Admin at `/login` with credentials above
-2. Attempt to access hospital dashboard (should redirect or deny)
-3. Verify Super Admin can see all hospitals/users (unscoped)
-
-#### 2. Hospital Admin Dashboard
-1. Login as Hospital Admin (`admin@example.com` / `password`)
-2. Access `/hospital/dashboard`
-3. Verify dashboard shows scoped metrics:
-   - User count (3 for hospital: admin, doctor, patient)
-   - Patient count (1)
-4. Check multi-tenancy: Only hospital data visible
-
-#### 3. Settings Module
-1. Access `/hospital/settings` as logged-in hospital user
-2. Verify module toggles are displayed
-3. Check/uncheck boxes and submit
-4. Refresh settings page to confirm updates saved
-
-#### 4. Multi-Tenancy Verification
-1. Login as different users and confirm scoped queries
-2. Create a new user with hospital_id via Tinker: `php artisan tinker`
-   ```php
-   App\Models\User::create(['name'=>'Test User','email'=>'test2@example.com','password'=>Hash::make('password'),'hospital_id'=>1]);
-   ```
-3. Login as Hospital Admin and verify user count increased to 5
-
-#### 5. Role-Based Access
-1. Verify logged-in user's roles: `$user->roles` in Tinker
-2. Test route protection: Attempt to access dashboard without auth (should redirect to login)
-
-#### 6. Authentication & Session
-1. Login and verify session persists
-2. Logout and confirm session cleared
-3. Test Sanctum API tokens if implementing frontend
-
-### Running Tests
-```bash
-# Complete fresh installation with all seeders
-php artisan migrate:fresh --seed
-
-# Run Super Admin only seeder
-php artisan db:seed --class=SuperAdminSeeder
-
-# Run specific seeders individually
-php artisan db:seed --class=RoleSeeder
-php artisan db:seed --class=SubscriptionPlanSeeder
-
-# Testing with Feature Tests (coming soon)
-php artisan test --filter=AuthenticationTest
-
-# Tinker for manual testing
-php artisan tinker
-```
-
-### Expected Results
-- ✅ Dashboard displays correct scoped metrics
-- ✅ Settings updates persist and toggle modules
-- ✅ Multi-tenancy isolates data per hospital
-- ✅ Authentication prevents unauthorized access
-- ✅ Super Admin bypasses hospital scoping
-
-### Troubleshooting
-- If dashboard shows 0 counts, check user hospital_id assignments
-- If login fails, verify hashed passwords in seeder
-- Clear cache: `php artisan cache:clear` and restart PHP service

@@ -17,7 +17,9 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             HospitalTypeSeeder::class,
             SubscriptionPlanSeeder::class,
+            SuperAdminSeeder::class,
             TestDataSeeder::class,
+            CmsContentSeeder::class,
         ]);
     }
 }

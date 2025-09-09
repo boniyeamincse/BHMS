@@ -3,12 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\Hospital;
+use App\Http\Requests\RegisterRequest;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\ValidationException;
 
 class RegisterController extends Controller
 {
@@ -17,26 +15,32 @@ class RegisterController extends Controller
         return view('auth.register');
     }
 
-    public function register(Request $request)
+    public function register(RegisterRequest $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
-        ]);
-
-        // For simplicity, assign to first hospital or create a default
-        $hospital = Hospital::first() ?? Hospital::create(['name' => 'Default Hospital', 'email' => 'default@example.com']);
+        // Validate request is handled by RegisterRequest
+        // Do not auto-assign hospitals in SaaS application
+        // Require hospital selection during registration
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'hospital_id' => $hospital->id,
+            // REMOVED: auto hospital assignment for security
+            // hospital_id should be set during hospital subscription/onboarding
         ]);
+
+        // Regenerate session token for security before login
+        $request->session()->regenerate();
 
         Auth::login($user);
 
-        return redirect(route('hospital.dashboard'));
+        // Log successful registration
+        \Log::info('New user registered', [
+            'user_id' => $user->id,
+            'email' => $user->email,
+            'ip' => $request->ip()
+        ]);
+
+        return redirect()->intended(route('hospital.dashboard'));
     }
 }

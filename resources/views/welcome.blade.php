@@ -38,44 +38,64 @@
         </header>
 
         <!-- Hero Section -->
-        <section class="py-20 px-4 sm:px-6 lg:px-8">
+        <section class="py-20 px-4 sm:px-6 lg:px-8" id="hero">
             <div class="max-w-7xl mx-auto">
-                <div class="text-center">
-                    <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 text-blue-800 font-medium text-sm mb-6">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        Trusted by Healthcare Professionals
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="text-center md:text-left">
+                        <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 text-blue-800 font-medium text-sm mb-6">
+                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            Trusted by Healthcare Professionals
+                        </div>
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                            Smart, Scalable, Secure<br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-600">
+                                Hospital Management SaaS
+                            </span>
+                        </h1>
+                        <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl leading-relaxed">
+                            Transform your healthcare operations with our cloud-based hospital management system. Affordable, secure, and ready to scale with your medical facility.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                            @guest
+                                <a href="{{ route('register') }}" class="inline-flex items-center bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-200 transform hover:scale-105 shadow-lg">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                    </svg>
+                                    Get Started Free
+                                </a>
+                                <a href="#pricing" class="inline-flex items-center bg-white hover:bg-gray-50 text-gray-900 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-200 border-2 border-gray-200 hover:border-gray-300 shadow-lg">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                                    </svg>
+                                    Book a Demo
+                                </a>
+                            @else
+                                <a href="{{ route('hospital.dashboard') }}" class="inline-flex items-center bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-200 transform hover:scale-105 shadow-lg">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"/>
+                                    </svg>
+                                    Go to Dashboard
+                                </a>
+                            @endguest
+                        </div>
                     </div>
-                    <h1 class="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                            Advance Healthcare
-                        </span>
-                        <br>
-                        Management System
-                    </h1>
-                    <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
-                        Streamline hospital operations, enhance patient care, and drive better outcomes with our comprehensive medical management platform.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        @guest
-                            <a href="{{ route('register') }}" class="inline-flex items-center bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-200 transform hover:scale-105">
-                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+
+                    <!-- Hospital Illustration Placeholder -->
+                    <div class="flex justify-center md:justify-end">
+                        <div class="relative">
+                            <div class="w-80 h-80 bg-gradient-to-br from-blue-100 to-green-100 rounded-full flex items-center justify-center shadow-2xl">
+                                <svg class="w-40 h-40 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
                                 </svg>
-                                Get Started Free
-                            </a>
-                            <a href="#features" class="inline-flex items-center bg-white hover:bg-gray-50 text-gray-900 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-200 border-2 border-gray-200 hover:border-gray-300">
-                                Learn More
-                            </a>
-                        @else
-                            <a href="{{ route('hospital.dashboard') }}" class="inline-flex items-center bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-200 transform hover:scale-105">
-                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"/>
+                            </div>
+                            <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-green-500 rounded-full flex items-center justify-center shadow-lg">
+                                <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                                 </svg>
-                                Go to Dashboard
-                            </a>
-                        @endguest
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -85,11 +105,11 @@
         <section id="features" class="py-20 bg-gray-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Comprehensive Healthcare Solutions</h2>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Everything you need to manage modern healthcare operations efficiently and securely.</p>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Key Features</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Comprehensive healthcare management capabilities that transform your hospital operations.</p>
                 </div>
 
-                <div class="grid md:grid-cols-3 gap-8">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
                         <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -103,21 +123,51 @@
                     <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
                         <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-6">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Digital Records</h3>
-                        <p class="text-gray-600 leading-relaxed">Secure electronic health records with intelligent prescription management and comprehensive treatment tracking.</p>
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Doctor Scheduling</h3>
+                        <p class="text-gray-600 leading-relaxed">Optimize doctor availability and appointment scheduling with intelligent resource allocation and conflict resolution.</p>
                     </div>
 
                     <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
                         <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2z"/>
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Smart Analytics</h3>
-                        <p class="text-gray-600 leading-relaxed">Data-driven decision making with advanced reporting, financial analytics, and operational intelligence.</p>
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Billing</h3>
+                        <p class="text-gray-600 leading-relaxed">Streamlined billing and invoicing system with automated insurance claims processing and comprehensive financial reporting.</p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                        <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Pharmacy</h3>
+                        <p class="text-gray-600 leading-relaxed">Integrated pharmacy management with inventory tracking, prescription processing, and medication dispensing workflows.</p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                        <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Lab Reports</h3>
+                        <p class="text-gray-600 leading-relaxed">Digital lab report management with automated result processing, test ordering, and integration with electronic health records.</p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                        <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Multi-Branch Support</h3>
+                        <p class="text-gray-600 leading-relaxed">Seamlessly manage multiple hospital branches with centralized analytics, unified patient records, and consistent workflows.</p>
                     </div>
                 </div>
             </div>
@@ -175,6 +225,417 @@
             </div>
         </section>
 
+        <!-- Screenshots Section -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Explore BHMS</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">See how our intuitive dashboard and mobile app streamline healthcare management workflows.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <!-- Dashboard Screenshot -->
+                    <div class="order-1 lg:order-1">
+                        <div class="relative bg-gray-900 rounded-2xl shadow-2xl p-4 transform hover:scale-105 transition-transform duration-300">
+                            <div class="aspect-[16/10] bg-gradient-to-br from-blue-600 to-green-600 rounded-xl flex items-center justify-center">
+                                <div class="text-center text-white">
+                                    <div class="mb-4">
+                                        <svg class="w-16 h-16 mx-auto text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-semibold mb-2">Dashboard Preview</h3>
+                                    <p class="text-white/80">Comprehensive hospital management at a glance</p>
+                                </div>
+                            </div>
+                            <!-- Mock browser chrome -->
+                            <div class="absolute top-2 left-6 flex space-x-2">
+                                <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile App Screenshot -->
+                    <div class="order-2 lg:order-2">
+                        <div class="text-center lg:text-left mb-8 lg:mb-0">
+                            <h3 class="text-3xl font-bold text-gray-900 mb-6">Mobile-First Design</h3>
+                            <ul class="space-y-4 text-gray-600">
+                                <li class="flex items-center">
+                                    <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    Real-time patient updates on the go
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    Emergency alerts and notifications
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    Secure messaging with staff
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    Lab results and prescription tracking
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Phone Mockup -->
+                <div class="mt-16 flex justify-center">
+                    <div class="relative">
+                        <!-- Phone mockup -->
+                        <div class="w-64 h-128 bg-gray-900 rounded-[3rem] p-3 shadow-2xl">
+                            <div class="bg-gradient-to-br from-blue-100 to-green-100 rounded-[2.5rem] h-full flex flex-col">
+                                <!-- Status bar -->
+                                <div class="h-6 bg-gradient-to-r from-blue-600 to-green-600 rounded-t-[2.5rem] px-4 flex items-center justify-between">
+                                    <span class="text-xs font-semibold text-white">9:41</span>
+                                    <div class="flex space-x-1">
+                                        <div class="w-4 h-1 bg-white rounded-full"></div>
+                                    </div>
+                                </div>
+
+                                <!-- App content -->
+                                <div class="flex-1 px-4 py-6">
+                                    <div class="text-center mb-6">
+                                        <div class="w-8 h-8 bg-blue-600 rounded-lg mx-auto mb-2"></div>
+                                        <h4 class="text-sm font-semibold text-gray-800">BHMS Mobile</h4>
+                                        <p class="text-xs text-gray-600">Healthcare Management</p>
+                                    </div>
+
+                                    <div class="space-y-4">
+                                        <div class="bg-white/50 backdrop-blur rounded-lg p-3">
+                                            <div class="flex items-center justify-between">
+                                                <span class="text-sm font-medium text-gray-800">Patient Records</span>
+                                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                                </svg>
+                                            </div>
+                                            <p class="text-xs text-gray-600 mt-1">25 active patients</p>
+                                        </div>
+
+                                        <div class="bg-white/50 backdrop-blur rounded-lg p-3">
+                                            <div class="flex items-center justify-between">
+                                                <span class="text-sm font-medium text-gray-800">Appointments</span>
+                                                <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                                </svg>
+                                            </div>
+                                            <p class="text-xs text-gray-600 mt-1">Next: 2:30 PM</p>
+                                        </div>
+
+                                        <div class="bg-white/50 backdrop-blur rounded-lg p-3 border-l-4 border-blue-600">
+                                            <div class="flex items-center">
+                                                <svg class="w-5 h-5 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                                </svg>
+                                                <span class="text-sm font-medium text-gray-800">Emergency Alert</span>
+                                            </div>
+                                            <p class="text-xs text-gray-600 mt-1">Room 203 - Code Blue</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Floating notification -->
+                        <div class="absolute -top-4 -right-4 bg-red-500 text-white text-xs px-3 py-1 rounded-full shadow-lg">
+                            Emergency
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Trusted by Healthcare Professionals</h2>
+                    <p class="text-xl text-gray-600">See what doctors and hospital administrators are saying about BHMS</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-blue-600 to-green-600 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white font-semibold text-lg">SJ</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Dr. Sarah Johnson</h4>
+                                <p class="text-gray-600 text-sm">Chief Physician, Metropolitan Hospital</p>
+                            </div>
+                        </div>
+                        <div class="flex text-yellow-400 mb-4">
+                            @for($i = 0; $i < 5; $i++)
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            @endfor
+                        </div>
+                        <p class="text-gray-700 italic">"BHMS has transformed how we manage patient care. The intuitive interface and comprehensive features have significantly improved our efficiency and patient outcomes."</p>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-blue-600 to-green-600 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white font-semibold text-lg">MR</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Dr. Michael Rodriguez</h4>
+                                <p class="text-gray-600 text-sm">Cardiology Department Head</p>
+                            </div>
+                        </div>
+                        <div class="flex text-yellow-400 mb-4">
+                            @for($i = 0; $i < 5; $i++)
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            @endfor
+                        </div>
+                        <p class="text-gray-700 italic">"The multispecialty support and real-time analytics have been game-changing for our cardiology department. Highly recommended!"</p>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-blue-600 to-green-600 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white font-semibold text-lg">AL</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Anna Lewis</h4>
+                                <p class="text-gray-600 text-sm">Hospital Administrator</p>
+                            </div>
+                        </div>
+                        <div class="flex text-yellow-400 mb-4">
+                            @for($i = 0; $i < 5; $i++)
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            @endfor
+                        </div>
+                        <p class="text-gray-700 italic">"BHMS streamlined our administrative workflows and reduced operational costs by 30%. The multi-branch support is perfect for our organization."</p>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-blue-600 to-green-600 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white font-semibold text-lg">DC</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Dr. David Chen</h4>
+                                <p class="text-gray-600 text-sm">Emergency Medicine Specialist</p>
+                            </div>
+                        </div>
+                        <div class="flex text-yellow-400 mb-4">
+                            @for($i = 0; $i < 5; $i++)
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            @endfor
+                        </div>
+                        <p class="text-gray-700 italic">"In emergency situations, every second counts. BHMS helps us provide faster, more accurate care with real-time patient information at our fingertips."</p>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-blue-600 to-green-600 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white font-semibold text-lg">RP</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Rachel Patel</h4>
+                                <p class="text-gray-600 text-sm">IT Director, University Medical Center</p>
+                            </div>
+                        </div>
+                        <div class="flex text-yellow-400 mb-4">
+                            @for($i = 0; $i < 5; $i++)
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            @endfor
+                        </div>
+                        <p class="text-gray-700 italic">"The secure architecture and compliance features of BHMS give us complete confidence in our patient data management and regulatory compliance."</p>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-blue-600 to-green-600 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white font-semibold text-lg">TG</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Dr. Thomas Garcia</h4>
+                                <p class="text-gray-600 text-sm">Family Medicine Physician</p>
+                            </div>
+                        </div>
+                        <div class="flex text-yellow-400 mb-4">
+                            @for($i = 0; $i < 5; $i++)
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            @endfor
+                        </div>
+                        <p class="text-gray-700 italic">"Patient engagement has never been easier. The mobile app and family portal keep patients connected and informed throughout their care journey."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Choose Your Plan</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Start with our free trial and scale as your hospital grows. All plans include core features and round-the-clock support.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Free Trial -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-200 hover:border-blue-300 transition-all duration-300">
+                        <div class="text-center mb-6">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Free Trial</h3>
+                            <div class="text-4xl font-bold text-blue-600 mb-1">$0</div>
+                            <p class="text-gray-600">For 30 days</p>
+                        </div>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-gray-700">Up to 100 patients</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-gray-700">Basic features</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-gray-700">Email support</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-gray-700">Mobile app access</span>
+                            </li>
+                        </ul>
+                        <a href="{{ route('register') }}" class="block w-full bg-gray-600 hover:bg-gray-700 text-white text-center px-6 py-3 rounded-full font-semibold transition-colors duration-200">
+                            Start Free Trial
+                        </a>
+                    </div>
+
+                    <!-- Standard Plan -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg border-2 border-blue-500 hover:border-blue-600 transition-all duration-300 relative">
+                        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                            <span class="bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-semibold">Most Popular</span>
+                        </div>
+                        <div class="text-center mb-6 mt-4">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Standard</h3>
+                            <div class="text-4xl font-bold text-blue-600 mb-1">$99</div>
+                            <p class="text-gray-600">per month</p>
+                        </div>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-gray-700">Up to 1000 patients</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-gray-700">All core features</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-gray-700">Priority support</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-gray-700">Advanced analytics</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-gray-700">API access</span>
+                            </li>
+                        </ul>
+                        <a href="{{ route('register') }}" class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center px-6 py-3 rounded-full font-semibold transition-colors duration-200">
+                            Choose Standard
+                        </a>
+                    </div>
+
+                    <!-- Enterprise Plan -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-200 hover:border-purple-300 transition-all duration-300">
+                        <div class="text-center mb-6">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Enterprise</h3>
+                            <div class="text-4xl font-bold text-purple-600 mb-1">$299</div>
+                            <p class="text-gray-600">per month</p>
+                        </div>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-gray-700">Unlimited patients</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-gray-700">All features included</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-gray-700">24/7 dedicated support</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-gray-700">Custom integrations</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-gray-700">Multi-branch management</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-gray-700">White-label option</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="block w-full bg-purple-600 hover:bg-purple-700 text-white text-center px-6 py-3 rounded-full font-semibold transition-colors duration-200">
+                            Contact Sales
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- CTA Section -->
         @guest
         <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
@@ -192,20 +653,101 @@
         @endguest
 
         <!-- Footer -->
-        <footer class="bg-gray-900 text-white py-12">
+        <footer class="bg-gray-900 text-white py-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center">
-                    <div class="flex items-center justify-center mb-4">
-                        <div class="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-full mr-3">
-                            <svg class="w-6 h-6 text-white animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"></path>
-                            </svg>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Company Info -->
+                    <div>
+                        <div class="flex items-center mb-4">
+                            <div class="bg-gradient-to-r from-blue-600 to-green-600 p-2 rounded-full mr-3">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold">BHMS</h3>
                         </div>
-                        <h3 class="text-xl font-semibold">BHMS</h3>
+                        <p class="text-gray-400 mb-6">Transforming healthcare management through innovative technology and comprehensive SaaS solutions.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
-                    <p class="text-gray-400 mb-6 max-w-2xl mx-auto">Transforming healthcare management through innovative technology and comprehensive solutions.</p>
-                    <div class="border-t border-gray-800 pt-8 text-sm text-gray-500">
-                        © 2025 Bureau of Health Management Services. All rights reserved.
+
+                    <!-- Quick Links -->
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#features" class="text-gray-400 hover:text-white transition-colors duration-200">Features</a></li>
+                            <li><a href="#pricing" class="text-gray-400 hover:text-white transition-colors duration-200">Pricing</a></li>
+                            <li><a href="#testimonials" class="text-gray-400 hover:text-white transition-colors duration-200">Testimonials</a></li>
+                            <li><a href="{{ route('register') }}" class="text-gray-400 hover:text-white transition-colors duration-200">Sign Up</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Support -->
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Support</h4>
+                        <ul class="space-y-2">
+                            <li><a href="mailto:support@bhms.com" class="text-gray-400 hover:text-white transition-colors duration-200">Email Support</a></li>
+                            <li><a href="tel:+1-800-BHMS-HELP" class="text-gray-400 hover:text-white transition-colors duration-200">Call Us</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Help Center</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Documentation</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">API Guide</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact -->
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-start space-x-3">
+                                <svg class="w-5 h-5 text-gray-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                                <span class="text-gray-400">123 Healthcare Ave<br>San Francisco, CA 94102</span>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <svg class="w-5 h-5 text-gray-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                </svg>
+                                <span class="text-gray-400">+1 (800) BHMS-HELP</span>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <svg class="w-5 h-5 text-gray-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                                <span class="text-gray-400">support@bhms.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                    <p class="text-gray-400 text-sm">&copy; 2025 Bureau of Health Management Services. All rights reserved.</p>
+                    <div class="mt-4 flex flex-wrap justify-center space-x-6 text-sm">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Data Protection</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">HIPAA Compliance</a>
                     </div>
                 </div>
             </div>
