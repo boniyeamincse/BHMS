@@ -71,14 +71,34 @@ class CmsController extends Controller
 
     public function landing()
     {
-        $sections = [
-            'about' => CmsContent::published()->byLocale(config('app.locale', 'en'))->where('slug', 'about')->first(),
-            'services' => CmsContent::published()->byLocale(config('app.locale', 'en'))->where('slug', 'services')->first(),
-            'pricing' => CmsContent::published()->byLocale(config('app.locale', 'en'))->where('slug', 'pricing')->first(),
-            'faq' => CmsContent::published()->byLocale(config('app.locale', 'en'))->where('slug', 'faq')->first(),
-            'landing_text' => CmsContent::published()->byLocale(config('app.locale', 'en'))->where('slug', 'landing-text')->first(),
-        ];
+        try {
+            // Optimized: Single query to fetch all required sections
+            $locale = config('app.locale', 'en');
+            $sectionSlugs = ['about', 'services', 'pricing', 'faq', 'landing-text'];
 
-        return view('landing', compact('sections'));
+            $cmsSections = CmsContent::published()
+                ->byLocale($locale)
+                ->whereIn('slug', $sectionSlugs)
+                ->get()
+                ->keyBy('slug');
+
+            $sections = [];
+            foreach ($sectionSlugs as $slug) {
+                $sections[$slug] = $cmsSections->get($slug);
+            }
+
+            return view('landing', compact('sections'));
+        } catch (\Exception $e) {
+            // Fallback to individual queries if optimized version fails
+            $sections = [
+                'about' => CmsContent::published()->byLocale(config('app.locale', 'en'))->where('slug', 'about')->first(),
+                'services' => CmsContent::published()->byLocale(config('app.locale', 'en'))->where('slug', 'services')->first(),
+                'pricing' => CmsContent::published()->byLocale(config('app.locale', 'en'))->where('slug', 'pricing')->first(),
+                'faq' => CmsContent::published()->byLocale(config('app.locale', 'en'))->where('slug', 'faq')->first(),
+                'landing_text' => CmsContent::published()->byLocale(config('app.locale', 'en'))->where('slug', 'landing-text')->first(),
+            ];
+
+            return view('landing', compact('sections'));
+        }
     }
 }

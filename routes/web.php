@@ -1,6 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DoctorDashboardController;
+use App\Http\Controllers\ReceptionistDashboardController;
+use App\Http\Controllers\AccountantDashboardController;
+use App\Http\Controllers\CaseHandlerDashboardController;
+use App\Http\Controllers\NurseDashboardController;
+use App\Http\Controllers\PharmacistDashboardController;
+use App\Http/Controllers\LabTechnicianDashboardController;
+use App\Http\Controllers\PatientDashboardController;
 use App\Http\Controllers\HospitalDashboardController;
 use App\Http\Controllers\HospitalSettingsController;
 use App\Http\Controllers\Auth\LoginController;
@@ -49,6 +57,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/hospital/dashboard', [HospitalDashboardController::class, 'index'])->name('hospital.dashboard');
     Route::get('/hospital/settings', [HospitalSettingsController::class, 'index'])->name('hospital.settings.index');
     Route::patch('/hospital/settings', [HospitalSettingsController::class, 'update'])->name('hospital.settings.update');
+
+    Route::get('/doctor/dashboard', [DoctorDashboardController::class, 'index'])->name('doctor.dashboard');
+    Route::get('/receptionist/dashboard', [ReceptionistDashboardController::class, 'index'])->name('receptionist.dashboard');
+    Route::get('/accountant/dashboard', [AccountantDashboardController::class, 'index'])->name('accountant.dashboard');
+    Route::get('/case-handler/dashboard', [CaseHandlerDashboardController::class, 'index'])->name('case-handler.dashboard');
+    Route::get('/nurse/dashboard', [NurseDashboardController::class, 'index'])->name('nurse.dashboard');
+    Route::get('/pharmacist/dashboard', [PharmacistDashboardController::class, 'index'])->name('pharmacist.dashboard');
+    Route::get('/lab-technician/dashboard', [LabTechnicianDashboardController::class, 'index'])->name('lab-technician.dashboard');
+    Route::get('/patient/dashboard', [PatientDashboardController::class, 'index'])->name('patient.dashboard');
 
     // Super Admin only routes
     Route::middleware('super_admin')->prefix('saas')->name('saas.')->group(function () {
